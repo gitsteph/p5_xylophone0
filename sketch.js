@@ -3,6 +3,10 @@ var canvasHeight;
 var numTones;
 
 var allGeometries;
+var startPosX;
+var startPosY;
+var defaultWidth;
+var defaultHeight;
 const colorDeviation = 10;
 const hoverDeviation = 35;
 
@@ -11,10 +15,10 @@ function setup() {
     numTones = 8;
 
     allGeometries = new Array();
-    var startPosX = 0;
-    var startPosY = 100;
-    var w = 100;
-    var height = 400;
+    startPosX = 0;
+    startPosY = 100;
+    defaultWidth = 100;
+    defaultHeight = 400;
     for (var i=0; i < numTones; i++) {
         // instantiate oscillator
         var env = new p5.Envelope();
@@ -29,14 +33,14 @@ function setup() {
         osc.start();
 
         // declare rect properties
-        var posX = startPosX + w * i;
+        var posX = startPosX + defaultWidth * i;
         var posY = startPosY;
         var rainbowHueBase = i * (255 / numTones);
         var obj = {
             'x': posX,
             'y': posY,
-            'w': w,
-            'height': height,
+            'w': defaultWidth,
+            'height': defaultHeight,
             'hue': int(random((rainbowHueBase - colorDeviation), (rainbowHueBase + colorDeviation))),
             's': random(150, 255),
             'b': random(150, 220),
@@ -66,6 +70,21 @@ function draw() {
     text('my first internet xylophone!', 10, 40);
     textSize(20);
     text('(re-fresh for more tones & colors)', 10, 70);
+
+    // coords for triangle stand
+    // var x1 = startPosX + defaultWidth * numTones - 20;
+    // var y1 = startPosY + defaultHeight / 2 - 150;
+    // var x2 = startPosX + defaultWidth * numTones - 20;
+    // var y2 = startPosY + defaultHeight / 2 + 150;
+    // var x3 = startPosX + defaultWidth * numTones + 100;
+    // var y3 = startPosY + defaultHeight / 2;
+    fill('#a9e510');
+    // triangle(x1, y1, x2, y2, x3, y3);
+    // single circle stand
+    // ellipse(startPosX + defaultWidth * numTones, startPosY + defaultHeight / 2, 150, 150);
+    // double circle stand
+    ellipse(startPosX + defaultWidth * numTones, startPosY, 75, 75);
+    ellipse(startPosX + defaultWidth * numTones, startPosY + defaultHeight, 75, 75);
 
     cursor(ARROW);
     for (var i = 0; i < allGeometries.length; i++) {
