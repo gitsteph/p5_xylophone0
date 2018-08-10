@@ -15,7 +15,7 @@ function setup() {
     numTones = 8;
 
     allGeometries = new Array();
-    startPosX = 0;
+    startPosX = 20;
     startPosY = 100;
     defaultWidth = 100;
     defaultHeight = 400;
