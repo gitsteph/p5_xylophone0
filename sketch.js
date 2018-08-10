@@ -62,6 +62,11 @@ function mouseOverCheck(targetRect) {
 }
 
 function draw() {
+    textSize(40);
+    text('my first internet xylophone!', 10, 40);
+    textSize(20);
+    text('(re-fresh for more tones & colors)', 10, 70);
+
     cursor(ARROW);
     for (var i = 0; i < allGeometries.length; i++) {
         var currentRect = allGeometries[i];
